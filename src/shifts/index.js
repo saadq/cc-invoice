@@ -7,5 +7,5 @@ getRecordsButton.addEventListener('click', () => {
 })
 
 invoiceButton.addEventListener('click', () => {
-  alert('hi')
+  chrome.runtime.sendMessage('hi')
 })

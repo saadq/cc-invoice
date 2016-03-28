@@ -15,6 +15,11 @@
       "js": ["./js/shifts.js"]
     }
   ],
+  "background": {
+    "scripts": [
+      "./js/spreadsheet.js"
+    ]
+  },
   "permissions": [
     "activeTab",
     "https://ajax.googleapis.com/"

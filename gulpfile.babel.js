@@ -7,7 +7,7 @@ import del from 'del'
 
 let isWatch
 
-const files = [
+const scripts = [
   {
     input: ['./src/shifts/index.js'],
     output: 'shifts.js',
@@ -19,6 +19,11 @@ const files = [
     destination: './dist/js'
   }
 ]
+
+const manifest = {
+  src: './src/manifest.json',
+  dist: './dist'
+}
 
 function Defer(max, callback) {
   this.max = max
@@ -91,17 +96,24 @@ function createBundles(bundles, defer) {
   })
 }
 
-gulp.task('build', done => {
-  const d = new Defer(files.length, done)
+gulp.task('scripts', done => {
+  const d = new Defer(scripts.length, done)
   isWatch = false
-  createBundles(files, d)
+  createBundles(scripts, d)
 })
 
 gulp.task('watch', done => {
-  const d = new Defer(files.length, done)
+  const d = new Defer(scripts.length, done)
   isWatch = true
-  createBundles(files, d)
+  createBundles(scripts, d)
 })
 
+gulp.task('manifest', () => {
+  gulp
+    .src(manifest.src)
+    .pipe(gulp.dest(manifest.dist))
+})
+
+gulp.task('build', ['manifest', 'scripts'])
 gulp.task('clean', () => del(['dist']))
 gulp.task('default', ['build'])

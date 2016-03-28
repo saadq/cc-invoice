@@ -102,7 +102,7 @@ gulp.task('scripts', done => {
   createBundles(scripts, d)
 })
 
-gulp.task('watch', done => {
+gulp.task('watch-scripts', done => {
   const d = new Defer(scripts.length, done)
   isWatch = true
   createBundles(scripts, d)
@@ -114,6 +114,11 @@ gulp.task('manifest', () => {
     .pipe(gulp.dest(manifest.dest))
 })
 
+gulp.task('watch-manifest', () => {
+  gulp.watch(manifest.src, ['manifest'])
+})
+
 gulp.task('build', ['manifest', 'scripts'])
+gulp.task('watch', ['watch-manifest', 'watch-scripts'])
 gulp.task('clean', () => del(['dist']))
 gulp.task('default', ['build'])

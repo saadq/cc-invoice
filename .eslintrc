@@ -1,16 +1,9 @@
 {
-  /**
-   * ESLint Parser Settings
-   */
   "parserOptions": {
       "ecmaVersion": 6,
       "sourceType": "module",
-      "ecmaFeatures": {
-          "jsx": true
-      }
   },
   "ecmaFeatures": {
-    "jsx": true,
     "modules": true,
     "experimentalObjectRestSpread": true
   },
@@ -19,7 +12,7 @@
     "es6": true,
     "node": true,
     "browser": true,
-    "jquery": true
+    "webextensions": true
   },
 
   "rules": {

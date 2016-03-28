@@ -1,11 +1,13 @@
-import { buttonContainer, invoiceButton, getRecordsButton } from './nodes'
+import getShifts from './get-shifts'
+import { buttonRow, invoiceButton, getRecordsButton } from './nodes'
 
 // When the Get Records button is pressed,
 // insert the Invoice Button next to it
 getRecordsButton.addEventListener('click', () => {
-  buttonContainer.appendChild(invoiceButton)
+  buttonRow.appendChild(invoiceButton)
 })
 
+// Send the table of shift records to our background script
 invoiceButton.addEventListener('click', () => {
-  chrome.runtime.sendMessage('hi')
+  getShifts()
 })

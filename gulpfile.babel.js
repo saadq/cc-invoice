@@ -1,4 +1,5 @@
 import gulp from 'gulp'
+import gutil from 'gulp-util'
 import browserify from 'browserify'
 import babelify from 'babelify'
 import watchify from 'watchify'
@@ -25,6 +26,12 @@ const manifest = {
   dest: './dist'
 }
 
+function printError(err) {
+  gutil.log(gutil.colors.red(err.name))
+  console.error(err.stack)
+  this.emit('end')
+}
+
 function Defer(max, callback) {
   this.max = max
   this.count = 0
@@ -41,7 +48,7 @@ function bundle(bundler, options) {
   const startTime = new Date().getTime()
 
   return bundler.bundle()
-    .on('error', err => console.log(err))
+    .on('error', printError)
     .pipe(source(options.output))
     .pipe(gulp.dest(options.dest))
     .on('end', () => {

@@ -11,18 +11,18 @@ const scripts = [
   {
     input: ['./src/shifts/index.js'],
     output: 'shifts.js',
-    destination: './dist/js'
+    dest: './dist/js'
   },
   {
     input: ['./src/spreadsheet/index.js'],
     output: 'spreadsheet.js',
-    destination: './dist/js'
+    dest: './dist/js'
   }
 ]
 
 const manifest = {
   src: './src/manifest.json',
-  dist: './dist'
+  dest: './dist'
 }
 
 function Defer(max, callback) {
@@ -43,7 +43,7 @@ function bundle(bundler, options) {
   return bundler.bundle()
     .on('error', err => console.log(err))
     .pipe(source(options.output))
-    .pipe(gulp.dest(options.destination))
+    .pipe(gulp.dest(options.dest))
     .on('end', () => {
       const time = (new Date().getTime() - startTime) / 1000
       console.log(`${options.output} was browserified in ${time}s`)
@@ -111,7 +111,7 @@ gulp.task('watch', done => {
 gulp.task('manifest', () => {
   gulp
     .src(manifest.src)
-    .pipe(gulp.dest(manifest.dist))
+    .pipe(gulp.dest(manifest.dest))
 })
 
 gulp.task('build', ['manifest', 'scripts'])

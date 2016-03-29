@@ -7,8 +7,9 @@ $getRecordsButton.addEventListener('click', () => {
   $getRecordsButton.parentNode.appendChild($invoiceButton)
 })
 
-// Send the shift records to the background script
+// Send the necessary invoice data to a
+// background script which will create a spreadsheet
 $invoiceButton.addEventListener('click', () => {
-  const shifts = getInvoiceData()
-  console.log(shifts)
+  const invoiceData = getInvoiceData()
+  chrome.runtime.sendMessage(invoiceData)
 })

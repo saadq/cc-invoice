@@ -1,20 +1,26 @@
-function $(selector) {
-  return selector.startsWith('#')
+// Alias for querySelectorAll/getElementById
+const $ = selector =>
+  selector.startsWith('#')
     ? document.getElementById(selector.slice(1))
     : document.querySelectorAll(selector)
-}
 
-const tableContainer = $('#manage-records-container')
-const buttonRow = $('.right')[0]
-const getRecordsButton = $('#get-records')
+// DOM Nodes
+const $userName = $('.user-name')[0]
+const $startDate = $('#records-from-date')
+const $endDate = $('#records-to-date')
+const $tableContainer = $('#manage-records-container')
+const $getRecordsButton = $('#get-records')
 
-const invoiceButton = document.createElement('a')
-invoiceButton.classList.add('sm-orbutton')
-invoiceButton.textContent = 'Generate Invoice'
+// Dynamic Generate Invoice button
+const $invoiceButton = document.createElement('a')
+$invoiceButton.classList.add('sm-orbutton')
+$invoiceButton.textContent = 'Generate Invoice'
 
 export {
-  tableContainer,
-  buttonRow,
-  getRecordsButton,
-  invoiceButton
+  $userName,
+  $startDate,
+  $endDate,
+  $tableContainer,
+  $getRecordsButton,
+  $invoiceButton
 }

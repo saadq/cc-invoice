@@ -21,9 +21,7 @@
     "eslint": "^2.5.1",
     "gulp": "^3.9.1",
     "gulp-eslint": "^2.0.0",
-    "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.7.0",
-    "yargs": "^4.3.2"
+    "watchify": "^3.7.0"
   }
 }

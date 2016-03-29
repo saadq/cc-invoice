@@ -4,6 +4,7 @@ import browserify from 'browserify'
 import babelify from 'babelify'
 import watchify from 'watchify'
 import source from 'vinyl-source-stream'
+import eslint from 'gulp-eslint'
 import del from 'del'
 
 let isWatch
@@ -37,7 +38,7 @@ function Defer(max, callback) {
   this.count = 0
   this.callback = callback
 
-  this.exec = function() {
+  this.exec = () => {
     if (this.max === ++this.count) {
       this.callback()
     }
@@ -66,6 +67,7 @@ function createBundleProp(b, options) {
         expose: options.input[i].expose
       })
     }
+
     else {
       bundler.add(options.input[i])
     }
@@ -125,7 +127,19 @@ gulp.task('watch-manifest', () => {
   gulp.watch(manifest.src, ['manifest'])
 })
 
-gulp.task('build', ['manifest', 'scripts'])
-gulp.task('watch', ['watch-manifest', 'watch-scripts'])
+gulp.task('lint', () => (
+  gulp
+    .src(['src/**/*.js'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
+))
+
+gulp.task('watch-lint', () => {
+  gulp.watch(['src/**/*.js', '!node_modules/**', '!**/assets/**'], ['lint'])
+})
+
 gulp.task('clean', () => del(['dist']))
+gulp.task('build', ['manifest', 'lint', 'scripts'])
+gulp.task('watch', ['watch-manifest', 'watch-lint', 'watch-scripts'])
 gulp.task('default', ['build'])

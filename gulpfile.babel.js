@@ -11,6 +11,11 @@ let isWatch
 
 const scripts = [
   {
+    input: ['./src/popup/popup.js'],
+    output: 'popup.js',
+    dest: './dist/js'
+  },
+  {
     input: ['./src/shifts/index.js'],
     output: 'shifts.js',
     dest: './dist/js'
@@ -24,6 +29,11 @@ const scripts = [
 
 const manifest = {
   src: './src/manifest.json',
+  dest: './dist'
+}
+
+const popup = {
+  src: './src/popup/popup.html',
   dest: './dist'
 }
 
@@ -127,6 +137,16 @@ gulp.task('watch-manifest', () => {
   gulp.watch(manifest.src, ['manifest'])
 })
 
+gulp.task('popup', () => {
+  gulp
+    .src(popup.src)
+    .pipe(gulp.dest(popup.dest))
+})
+
+gulp.task('watch-popup', () => {
+  gulp.watch(popup.src, ['popup'])
+})
+
 gulp.task('lint', () => (
   gulp
     .src(['src/**/*.js'])
@@ -140,6 +160,6 @@ gulp.task('watch-lint', () => {
 })
 
 gulp.task('clean', () => del(['dist']))
-gulp.task('build', ['manifest', 'lint', 'scripts'])
-gulp.task('watch', ['watch-manifest', 'watch-lint', 'watch-scripts'])
+gulp.task('build', ['popup', 'manifest', 'lint', 'scripts'])
+gulp.task('watch', ['watch-popup', 'watch-manifest', 'watch-lint', 'watch-scripts'])
 gulp.task('default', ['build'])

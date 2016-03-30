@@ -1,4 +1,5 @@
 import { getShiftRows, emptyRow, emptyCols } from './util'
+import styles from './styles'
 
 /**
  * Creates a spreadsheet by generating an HTML table
@@ -33,15 +34,15 @@ function generateTable({ userName, totalHours, startDate, endDate, shifts }) {
   const totalAmount = hoursNum * hourlyRate
 
   const template = `
-    <table style="text-align: left; font-size: 8px; font-family: Arial, sans-serif; border-collapse: collapse;" cellpadding="2" border="1" bordercolor="DDDDDD">
+    <table style="${styles.table}" cellpadding="2" border="1" bordercolor="EEEEEE">
       <tr>
-        <td style="background-color: #E26563;" colspan="5">Please make sure to submit your invoice as a PDF (File > Save As > PDF)</td>
+        <td style="${styles.topHeader}" colspan="5">Please make sure to submit your invoice as a PDF (File > Save As > PDF)</td>
       </tr>
       <tr>
-        <td style="background-color: #EC9898;" colspan="5"><em>*Invoices should be emailed directly to Codecademy@bill.com or faxed to 646.365.7939</em></td>
+        <td style="${styles.subHeaders.top}" colspan="5"><em>*Invoices should be emailed directly to Codecademy@bill.com or faxed to 646.365.7939</em></td>
       </tr>
       <tr>
-        <td style="border-bottom: 10px solid gray; background-color: #EC9898;" colspan="5"><em>*If you're a new advisor, please be sure to attach your W-9 form!</em></td>
+        <td style="${styles.subHeaders.bottom}" colspan="5"><em>*If you're a new advisor, please be sure to attach your W-9 form!</em></td>
       </tr>
       <tr>
         <td><strong>To: Codecademy</strong></td>
@@ -71,15 +72,15 @@ function generateTable({ userName, totalHours, startDate, endDate, shifts }) {
         <td>REPLACE THIS FIELD</td>
         ${emptyCols(3)}
       </tr>
-      <tr style="background-color: #D9D9D9;">
+      <tr style="${styles.invoiceDetails}">
         <th>INVOICING DETAILS</th>
         <th colspan="3">DESCRIPTION OVERVIEW</th>
         <th>AMOUNT</th>
       </tr>
       <tr>
-        <td style="color: gray;"><em>Item 1</em></td>
-        <td style="color: gray;" colspan="3"><em>i.e. Training Hours</em></td>
-        <td style="color: gray;"><strong>$0.00</strong></td>
+        <td style="${styles.faded}"><em>Item 1</em></td>
+        <td style="${styles.faded}" colspan="3"><em>i.e. Training Hours</em></td>
+        <td style="${styles.faded}"><strong>$0.00</strong></td>
       </tr>
       <tr>
         <td><em>Item 2</em></td>
@@ -87,11 +88,11 @@ function generateTable({ userName, totalHours, startDate, endDate, shifts }) {
         <td><strong>$${totalAmount}</strong></td>
       </tr>
       <tr>
-        <td style="color: gray;"><em>Item 3</em></td>
-        <td style="color: gray;" colspan="3"><em>i.e. Content Hours</em></td>
-        <td style="color: gray;"><strong>$0.00</strong></td>
+        <td style="${styles.faded}"><em>Item 3</em></td>
+        <td style="${styles.faded}" colspan="3"><em>i.e. Content Hours</em></td>
+        <td style="${styles.faded}"><strong>$0.00</strong></td>
       </tr>
-      <tr style="background-color: #EFEFEF;">
+      <tr style="${styles.amountRequested}">
         <td colspan="4"><strong>TOTAL AMOUNT REQUESTED ($)</strong></td>
         <td><strong>$${totalAmount}</strong></td>
       </tr>
@@ -104,12 +105,12 @@ function generateTable({ userName, totalHours, startDate, endDate, shifts }) {
       <tr>
         <td><strong>DUE DATE</strong></td>
         ${emptyCols(3)}
-        <td style="text-align: left;"><strong>${new Date().toLocaleDateString()}</strong></td>
+        <td style="${styles.alignFix}"><strong>${new Date().toLocaleDateString()}</strong></td>
       </tr>
       <tr>
         <td><strong>TOTAL HOURS WORKED</strong></td>
         ${emptyCols(3)}
-        <td style="text-align: left;"><strong>${hoursNum}</strong></td>
+        <td style="${styles.alignFix}"><strong>${hoursNum}</strong></td>
       </tr>
       <tr>
         <td><strong>HOURLY RATE ($/HR)</strong></td>
@@ -127,7 +128,7 @@ function generateTable({ userName, totalHours, startDate, endDate, shifts }) {
         <td><strong>Daniella Kisza</strong></td>
       </tr>
       ${emptyRow()}
-      <tr style="background-color: #CCCCCC;">
+      <tr style="${styles.shiftInfo}">
         ${emptyCols(1)}
         <th>DETAILED DESCRIPTION</th>
         <th>DATE</th>

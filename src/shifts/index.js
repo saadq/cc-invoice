@@ -12,5 +12,6 @@ $getRecordsButton.addEventListener('click', () => {
 $invoiceButton.addEventListener('click', () => {
   const invoiceData = getInvoiceData()
   chrome.runtime.sendMessage(invoiceData, res => {
+    console.log(res || 'ERROR')
   })
 })

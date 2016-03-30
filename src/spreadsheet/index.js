@@ -8,4 +8,6 @@ chrome.runtime.onMessage.addListener((response, sender, sendResponse) => {
     filename: spreadSheetName,
     url: spreadsheetURL
   })
+
+  sendResponse('200 OK')
 })

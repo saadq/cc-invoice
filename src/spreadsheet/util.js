@@ -1,3 +1,5 @@
+import styles from './styles'
+
 /**
  * Dynamically creates the rows of each
  * individual shift entry
@@ -12,12 +14,12 @@ function getShiftRows(shifts) {
     const { date, startTime, endTime, duration } = shift
 
     shiftRows += `
-      <tr>
+      <tr style="${styles.alignFix}">
         ${emptyCols(1)}
-        <td style="padding: 0 2px;">Shift ${i + 1}</td>
-        <td style="padding: 0 2px;">${date}</td>
-        <td style="padding: 0 2px;">${startTime} – ${endTime}</td>
-        <td style="padding: 0 2px;">${duration}</td>
+        <td>Shift ${i + 1}</td>
+        <td>${date}</td>
+        <td>${startTime} – ${endTime}</td>
+        <td>${duration}</td>
       </tr>
     `
   })

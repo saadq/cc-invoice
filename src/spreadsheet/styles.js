@@ -18,7 +18,7 @@ const styles = {
   faded: `color: ${colors.gray};`,
   amountRequested: `background-color: ${colors.lightGray};`,
   alignFix: 'text-align: left;',
-  shiftInfo: `background-color: ${colors.midGray}`
+  shiftInfo: `background-color: ${colors.midGray}; text-align: left;`
 }
 
 export default styles

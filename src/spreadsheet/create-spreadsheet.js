@@ -34,7 +34,7 @@ function generateTable({ userName, totalHours, startDate, endDate, shifts }) {
   const totalAmount = hoursNum * hourlyRate
 
   const template = `
-    <table style="${styles.table}" cellpadding="2" border="1" bordercolor="EEEEEE">
+    <table style="${styles.table}" cellpadding="5" border="1" bordercolor="EEEEEE">
       <tr>
         <td style="${styles.topHeader}" colspan="5">Please make sure to submit your invoice as a PDF (File > Save As > PDF)</td>
       </tr>
@@ -73,9 +73,9 @@ function generateTable({ userName, totalHours, startDate, endDate, shifts }) {
         ${emptyCols(3)}
       </tr>
       <tr style="${styles.invoiceDetails}">
-        <th>INVOICING DETAILS</th>
-        <th colspan="3">DESCRIPTION OVERVIEW</th>
-        <th>AMOUNT</th>
+        <td><strong>INVOICING DETAILS</strong></td>
+        <td colspan="3"><strong>DESCRIPTION OVERVIEW</strong></td>
+        <td><strong>AMOUNT</strong></td>
       </tr>
       <tr>
         <td style="${styles.faded}"><em>Item 1</em></td>
@@ -130,10 +130,10 @@ function generateTable({ userName, totalHours, startDate, endDate, shifts }) {
       ${emptyRow()}
       <tr style="${styles.shiftInfo}">
         ${emptyCols(1)}
-        <th>DETAILED DESCRIPTION</th>
-        <th>DATE</th>
-        <th>TIME</th>
-        <th>HOURS</th>
+        <td><strong>DETAILED DESCRIPTION</strong></td>
+        <td><strong>DATE</strong></td>
+        <td><strong>TIME</strong></td>
+        <td><strong>HOURS</strong></td>
       </tr>
       ${getShiftRows(shifts)}
     </table>

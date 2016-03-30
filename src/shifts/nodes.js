@@ -6,6 +6,7 @@ const $ = selector =>
 
 // DOM Nodes
 const $userName = $('.user-name')[0]
+const $totalHours = $('tfoot td:nth-child(2)')[0]
 const $startDate = $('#records-from-date')
 const $endDate = $('#records-to-date')
 const $tableContainer = $('#manage-records-container')
@@ -18,6 +19,7 @@ $invoiceButton.textContent = 'Generate Invoice'
 
 export {
   $userName,
+  $totalHours,
   $startDate,
   $endDate,
   $tableContainer,

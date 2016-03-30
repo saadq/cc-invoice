@@ -11,5 +11,6 @@ $getRecordsButton.addEventListener('click', () => {
 // background script which will create a spreadsheet
 $invoiceButton.addEventListener('click', () => {
   const invoiceData = getInvoiceData()
-  chrome.runtime.sendMessage(invoiceData)
+  chrome.runtime.sendMessage(invoiceData, res => {
+  })
 })

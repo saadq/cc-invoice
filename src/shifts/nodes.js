@@ -11,7 +11,7 @@ const $endDate = $('#records-to-date')
 const $tableContainer = $('#manage-records-container')
 const $getRecordsButton = $('#get-records')
 
-// Dynamic Generate Invoice button
+// Dynamic "Generate Invoice" button
 const $invoiceButton = document.createElement('a')
 $invoiceButton.classList.add('sm-orbutton')
 $invoiceButton.textContent = 'Generate Invoice'

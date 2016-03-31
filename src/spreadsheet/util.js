@@ -16,7 +16,7 @@ function getShiftRows(shifts) {
     shiftRows += `
       <tr style="${styles.alignFix}">
         ${emptyCols(1)}
-        <td>Shift ${i + 1}</td>
+        <td colspan="3">Shift ${i + 1}</td>
         <td>${date}</td>
         <td>${startTime} – ${endTime}</td>
         <td>${duration}</td>
@@ -35,6 +35,8 @@ function getShiftRows(shifts) {
 function emptyRow() {
   return `
     <tr>
+      <td></td>
+      <td></td>
       <td></td>
       <td></td>
       <td></td>

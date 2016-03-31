@@ -36,101 +36,101 @@ function generateTable({ userName, totalHours, startDate, endDate, shifts }) {
   const template = `
     <table style="${styles.table}" cellpadding="5" border="1" bordercolor="EEEEEE">
       <tr>
-        <td style="${styles.topHeader}" colspan="5">Please make sure to submit your invoice as a PDF (File > Save As > PDF)</td>
+        <td style="${styles.topHeader}" colspan="7">Please make sure to submit your invoice as a PDF (File > Save As > PDF)</td>
       </tr>
       <tr>
-        <td style="${styles.subHeaders.top}" colspan="5"><em>*Invoices should be emailed directly to Codecademy@bill.com or faxed to 646.365.7939</em></td>
+        <td style="${styles.subHeaders.top}" colspan="7"><em>*Invoices should be emailed directly to Codecademy@bill.com or faxed to 646.365.7939</em></td>
       </tr>
       <tr>
-        <td style="${styles.subHeaders.bottom}" colspan="5"><em>*If you're a new advisor, please be sure to attach your W-9 form!</em></td>
+        <td style="${styles.subHeaders.bottom}" colspan="7"><em>*If you're a new advisor, please be sure to attach your W-9 form!</em></td>
       </tr>
       <tr>
         <td><strong>To: Codecademy</strong></td>
-        ${emptyCols(4)}
+        ${emptyCols(6)}
       </tr>
       <tr>
         <td><strong>49 West 27th Street - 4th Floor</strong></td>
-        ${emptyCols(4)}
+        ${emptyCols(6)}
       </tr>
       <tr>
         <td><strong>New York, NY 10001</strong></td>
-        ${emptyCols(4)}
+        ${emptyCols(6)}
       </tr>
       ${emptyRow()}
       <tr>
         <td><strong>YOUR NAME:</strong></td>
         <td>${userName}</td>
-        ${emptyCols(3)}
+        ${emptyCols(5)}
       </tr>
       <tr>
         <td><strong>YOUR EMAIL:</strong></td>
         <td>REPLACE THIS FIELD</td>
-        ${emptyCols(3)}
+        ${emptyCols(5)}
       </tr>
       <tr>
         <td><strong>YOUR ADDRESS:</strong></td>
         <td>REPLACE THIS FIELD</td>
-        ${emptyCols(3)}
+        ${emptyCols(5)}
       </tr>
       <tr style="${styles.invoiceDetails}">
         <td><strong>INVOICING DETAILS</strong></td>
-        <td colspan="3"><strong>DESCRIPTION OVERVIEW</strong></td>
+        <td colspan="5"><strong>DESCRIPTION OVERVIEW</strong></td>
         <td><strong>AMOUNT</strong></td>
       </tr>
       <tr>
         <td style="${styles.faded}"><em>Item 1</em></td>
-        <td style="${styles.faded}" colspan="3"><em>i.e. Training Hours</em></td>
-        <td style="${styles.faded}"><strong>$0.00</strong></td>
+        <td style="${styles.faded}" colspan="5"><em>i.e. Training Hours</em></td>
+        <td style="${styles.alignFix} ${styles.faded}"><strong>$0.00</strong></td>
       </tr>
       <tr>
         <td><em>Item 2</em></td>
-        <td colspan="3"><em>i.e. Advisor Shifts</em></td>
-        <td><strong>$${totalAmount}</strong></td>
+        <td colspan="5"><em>i.e. Advisor Shifts</em></td>
+        <td style="${styles.alignFix}"><strong>$${totalAmount}</strong></td>
       </tr>
       <tr>
         <td style="${styles.faded}"><em>Item 3</em></td>
-        <td style="${styles.faded}" colspan="3"><em>i.e. Content Hours</em></td>
-        <td style="${styles.faded}"><strong>$0.00</strong></td>
+        <td style="${styles.faded}" colspan="5"><em>i.e. Content Hours</em></td>
+        <td style="${styles.alignFix} ${styles.faded}"><strong>$0.00</strong></td>
       </tr>
       <tr style="${styles.amountRequested}">
-        <td colspan="4"><strong>TOTAL AMOUNT REQUESTED ($)</strong></td>
-        <td><strong>$${totalAmount}</strong></td>
+        <td colspan="6"><strong>TOTAL AMOUNT REQUESTED ($)</strong></td>
+        <td style="${styles.alignFix}"><strong>$${totalAmount}</strong></td>
       </tr>
       ${emptyRow()}
       <tr>
         <td><strong>INVOICE PERIOD</strong></td>
-        ${emptyCols(3)}
+        ${emptyCols(5)}
         <td><strong>${startDate} – ${endDate}</strong></td>
       </tr>
       <tr>
         <td><strong>DUE DATE</strong></td>
-        ${emptyCols(3)}
+        ${emptyCols(5)}
         <td style="${styles.alignFix}"><strong>${new Date().toLocaleDateString()}</strong></td>
       </tr>
       <tr>
         <td><strong>TOTAL HOURS WORKED</strong></td>
-        ${emptyCols(3)}
+        ${emptyCols(5)}
         <td style="${styles.alignFix}"><strong>${hoursNum}</strong></td>
       </tr>
       <tr>
         <td><strong>HOURLY RATE ($/HR)</strong></td>
-        ${emptyCols(3)}
+        ${emptyCols(5)}
         <td><strong>$15.00/HR</strong></td>
       </tr>
       <tr>
         <td><strong>DESCRIPTION OF SERVICES</strong></td>
-        ${emptyCols(3)}
+        ${emptyCols(5)}
         <td><strong>Codecademy Consultant</strong></td>
       </tr>
       <tr>
         <td><strong>MANAGER</strong></td>
-        ${emptyCols(3)}
+        ${emptyCols(5)}
         <td><strong>Daniella Kisza</strong></td>
       </tr>
       ${emptyRow()}
       <tr style="${styles.shiftInfo}">
         ${emptyCols(1)}
-        <td><strong>DETAILED DESCRIPTION</strong></td>
+        <td colspan="3"><strong>DETAILED DESCRIPTION</strong></td>
         <td><strong>DATE</strong></td>
         <td><strong>TIME</strong></td>
         <td><strong>HOURS</strong></td>
@@ -144,6 +144,13 @@ function generateTable({ userName, totalHours, startDate, endDate, shifts }) {
   return table
 }
 
+/**
+ * Converts an HTML table to an excel sheet
+ *
+ * @param  {string} table.template
+ * @param  {string} table.worksheet
+ * @return {string}
+ */
 function tableToExcel({ template, worksheet }) {
   const base64 = s => window.btoa(unescape(encodeURIComponent(s)))
   const uri = 'data:application/vnd.ms-excel;base64,'

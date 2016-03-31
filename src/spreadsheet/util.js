@@ -30,7 +30,7 @@ function getShiftRows(shifts) {
 /**
  * Creates an empty row in the template
  *
- * @return {void}
+ * @return {string}
  */
 function emptyRow() {
   return `
@@ -50,7 +50,7 @@ function emptyRow() {
  * Creates a given amount of columns
  *
  * @param  {number} numOfCols
- * @return {void}
+ * @return {string}
  */
 function emptyCols(numOfCols) {
   return '<td></td>'.repeat(numOfCols)

@@ -13,7 +13,7 @@ const scripts = [
   {
     input: ['./src/popup/popup.js'],
     output: 'popup.js',
-    dest: './dist/js'
+    dest: './dist/popup'
   },
   {
     input: ['./src/shifts/index.js'],
@@ -33,8 +33,14 @@ const manifest = {
 }
 
 const popup = {
-  src: './src/popup/popup.html',
-  dest: './dist'
+  html: {
+    src: './src/popup/popup.html',
+    dest: './dist/popup'
+  },
+  css: {
+    src: './src/popup/popup.css',
+    dest: './dist/popup'
+  }
 }
 
 function printError(err) {
@@ -139,12 +145,17 @@ gulp.task('watch-manifest', () => {
 
 gulp.task('popup', () => {
   gulp
-    .src(popup.src)
-    .pipe(gulp.dest(popup.dest))
+    .src(popup.html.src)
+    .pipe(gulp.dest(popup.html.dest))
+
+  gulp
+    .src(popup.css.src)
+    .pipe(gulp.dest(popup.css.dest))
 })
 
 gulp.task('watch-popup', () => {
-  gulp.watch(popup.src, ['popup'])
+  gulp.watch(popup.html.src, ['popup'])
+  gulp.watch(popup.css.src, ['popup'])
 })
 
 gulp.task('lint', () => (

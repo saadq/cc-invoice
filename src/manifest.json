@@ -4,7 +4,7 @@
   "description": "Automatic invoice generator for Codecademy Advisors.",
   "version": "0.1.0",
   "browser_action": {
-    "default_popup": "./dist/popup.html"
+    "default_popup": "./popup/popup.html"
   },
   "content_scripts": [
     {
@@ -23,6 +23,7 @@
   "permissions": [
     "activeTab",
     "downloads",
+    "storage",
     "https://ajax.googleapis.com/"
   ]
 }

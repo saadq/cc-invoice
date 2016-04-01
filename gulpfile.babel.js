@@ -16,8 +16,8 @@ const scripts = [
     dest: './dist/popup'
   },
   {
-    input: ['./src/shifts/index.js'],
-    output: 'shifts.js',
+    input: ['./src/invoice/index.js'],
+    output: 'invoice.js',
     dest: './dist/js'
   },
   {

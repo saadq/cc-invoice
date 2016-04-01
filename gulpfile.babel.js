@@ -43,6 +43,11 @@ const popup = {
   }
 }
 
+const img = {
+  src: './src/img/*.png',
+  dest: './dist/img'
+}
+
 function printError(err) {
   gutil.log(gutil.colors.red(err.name))
   console.error(err.stack)
@@ -133,6 +138,18 @@ gulp.task('watch-scripts', done => {
   createBundles(scripts, d)
 })
 
+gulp.task('lint', () => (
+  gulp
+    .src(['src/**/*.js'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
+))
+
+gulp.task('watch-lint', () => {
+  gulp.watch(['src/**/*.js', '!node_modules/**', '!**/assets/**'], ['lint'])
+})
+
 gulp.task('manifest', () => {
   gulp
     .src(manifest.src)
@@ -158,19 +175,13 @@ gulp.task('watch-popup', () => {
   gulp.watch(popup.css.src, ['popup'])
 })
 
-gulp.task('lint', () => (
+gulp.task('img', () => {
   gulp
-    .src(['src/**/*.js'])
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError())
-))
-
-gulp.task('watch-lint', () => {
-  gulp.watch(['src/**/*.js', '!node_modules/**', '!**/assets/**'], ['lint'])
+    .src(img.src)
+    .pipe(gulp.dest(img.dest))
 })
 
 gulp.task('clean', () => del(['dist']))
-gulp.task('build', ['popup', 'manifest', 'lint', 'scripts'])
+gulp.task('build', ['img', 'popup', 'manifest', 'lint', 'scripts'])
 gulp.task('watch', ['watch-popup', 'watch-manifest', 'watch-lint', 'watch-scripts'])
 gulp.task('default', ['build'])

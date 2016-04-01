@@ -1,10 +1,11 @@
 const $ = selector => document.querySelector(selector)
-const $button = $('#save')
+const $save = $('#save')
+const $clear = $('#clear')
 const $status = $('#status')
 const $email = $('#email')
 const $address = $('#address')
 
-$button.addEventListener('click', () => {
+$save.addEventListener('click', () => {
   const email = $email.value
   const address = $address.value
 
@@ -29,4 +30,10 @@ $button.addEventListener('click', () => {
     $status.style.color = 'green'
     $status.textContent = message
   }
+})
+
+$clear.addEventListener('click', () => {
+  chrome.storage.sync.set({ address: '', email: '' })
+  $status.style.color = 'blue'
+  $status.textContent = 'All settings have been reset!'
 })

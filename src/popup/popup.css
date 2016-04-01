@@ -1,3 +1,19 @@
-input {
+body {
+  width: 250px;
+}
+
+input, textarea {
   margin-bottom: 10px;
+}
+
+h2, p strong {
+  text-align: center;
+}
+
+button {
+  display: inline-block;
+}
+
+.example, #issues {
+  color: gray;
 }

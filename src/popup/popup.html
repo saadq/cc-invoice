@@ -6,13 +6,25 @@
   <link rel="stylesheet" href="./popup.css">
 </head>
 <body>
-  <h3>Preferences</h3>
+  <h2>Preferences</h2>
+  <p><strong>Note</strong>:<br> If you have a long home address, fill it out in the generated excel sheet manually instead of saving it here.</p>
   <p id="status"></p>
-  <label for="email">Email:</label>
-  <input id="email" type="text" name="email">
-  <label for="address">Address:</label>
-  <input id="address" type="text" name="address">
+
+  <label for="email"><strong>Email:</strong><br>
+    <span class="example">(Ex: fake@fakesite.com)</span>
+  </label><br>
+  <input id="email" type="text" name="email"><br>
+
+  <label for="address"><strong>Home Address:</strong><br>
+    <span class="example">(Ex: 55 Fake St. City, ST 05550)</span>
+  </label><br>
+  <textarea id="address" type="text" name="address"></textarea><br>
+
   <button id="save" type="button">Save</button>
+  <button id="clear" type="button">Clear Settings</button>
+
+  <p id="issues">Report any issues <a href="https://github.com/saadq/cc-invoice/issues">here</a>.</p>
+
   <script src="./popup.js"></script>
 </body>
 </html>

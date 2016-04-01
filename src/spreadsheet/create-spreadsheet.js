@@ -64,12 +64,12 @@ function generateTable({ userName, email, address, totalHours, startDate, endDat
       </tr>
       <tr>
         <td><strong>YOUR EMAIL:</strong></td>
-        <td>${email}</td>
+        <td>${email || 'REPLACE THIS'}</td>
         ${emptyCols(3)}
       </tr>
       <tr>
         <td><strong>YOUR ADDRESS:</strong></td>
-        <td>${address}</td>
+        <td>${address || 'REPLACE THIS'}</td>
         ${emptyCols(3)}
       </tr>
       <tr style="${styles.invoiceDetails}">

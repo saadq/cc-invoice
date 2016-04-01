@@ -63,7 +63,7 @@ button {
 
 button:hover {
   cursor: pointer;
-  background-color: red;
+  background-color: #5BDE62;
 }
 
 .divider {

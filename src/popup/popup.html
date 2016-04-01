@@ -3,27 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Codecademy Invoice Generator</title>
+  <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700'>
   <link rel="stylesheet" href="./popup.css">
 </head>
 <body>
   <h2>Preferences</h2>
-  <p><strong>Note</strong>:<br> If you have a long home address, fill it out in the generated excel sheet manually instead of saving it here.</p>
-  <p id="status"></p>
 
-  <label for="email"><strong>Email:</strong><br>
-    <span class="example">(Ex: fake@fakesite.com)</span>
-  </label><br>
-  <input id="email" type="text" name="email"><br>
+  <div class="wrapper">
+    <p id="disclaimer">
+      <strong>Note</strong>: If you have a long home address, fill it out in the generated excel sheet manually instead of saving it here to prevent it from being 2 pages.
+    </p>
+    <p id="status"></p>
 
-  <label for="address"><strong>Home Address:</strong><br>
-    <span class="example">(Ex: 55 Fake St. City, ST 05550)</span>
-  </label><br>
-  <textarea id="address" type="text" name="address"></textarea><br>
+    <label for="email"><strong>Email:</strong><br></label>
+    <input id="email" type="text" name="email"><br>
 
-  <button id="save" type="button">Save</button>
-  <button id="clear" type="button">Clear Settings</button>
+    <label for="address"><strong>Home Address:</strong></label>
+    <textarea id="address" type="text" name="address"></textarea><br>
 
-  <p id="issues">Report any issues <a href="https://github.com/saadq/cc-invoice/issues">here</a>.</p>
+    <button id="save" type="button">Save</button>
+    <button id="reset" type="button">Reset</button>
+  </div>
+
+  <div class="divider"></div>
+  <p id="issues">Report all issues <a href="https://github.com/saadq/cc-invoice/issues" target="_newtab">here</a>.</p>
 
   <script src="./popup.js"></script>
 </body>

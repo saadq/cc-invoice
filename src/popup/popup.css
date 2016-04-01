@@ -1,19 +1,82 @@
-body {
-  width: 250px;
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
-input, textarea {
-  margin-bottom: 10px;
+body {
+  font-family: 'Open Sans';
+  width: 300px;
+  color: #000;
+  border-radius: 5px;
+}
+
+h2, p {
+  font-weight: 300;
 }
 
 h2, p strong {
   text-align: center;
 }
 
+h2 {
+  font-weight: 300;
+  margin: 0;
+  background-color: #43A047;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  padding: 25px;
+  color: #fff;
+}
+
+.wrapper {
+  text-align: center;
+  width: 200px;
+  margin: 0 auto;
+}
+
+#disclaimer {
+  text-align: left;
+}
+
+label {
+  font-size: 1.25em;
+  text-align: center;
+}
+
+input, textarea {
+  margin-bottom: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
 button {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  transition: all .3s ease-out;
+  text-transform: uppercase;
   display: inline-block;
+  color: #fff;
+  background-color: #43A047;
+  transition: all .3s ease-out;
+  border: none;
+  border-radius: 2px;
+  padding: 5px 15px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: red;
+}
+
+.divider {
+  margin-top: 20px;
+  width: 100%;
+  border: 1px solid #eee;
 }
 
 .example, #issues {
   color: gray;
+}
+
+#issues {
+  opacity: .7;
+  text-align: center;
 }

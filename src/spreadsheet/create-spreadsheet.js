@@ -27,7 +27,7 @@ function createSpreadsheet(invoiceInfo) {
  * @param {array}  invoiceInfo.shifts
  * @return {object}
  */
-function generateTable({ userName, totalHours, startDate, endDate, shifts }) {
+function generateTable({ userName, email, address, totalHours, startDate, endDate, shifts }) {
   const worksheet = `${userName} Invoice Template`
   const hoursNum = parseFloat(totalHours).toFixed(2)
   const hourlyRate = 15
@@ -64,12 +64,12 @@ function generateTable({ userName, totalHours, startDate, endDate, shifts }) {
       </tr>
       <tr>
         <td><strong>YOUR EMAIL:</strong></td>
-        <td>REPLACE THIS FIELD</td>
+        <td>${email}</td>
         ${emptyCols(5)}
       </tr>
       <tr>
         <td><strong>YOUR ADDRESS:</strong></td>
-        <td>REPLACE THIS FIELD</td>
+        <td>${address}</td>
         ${emptyCols(5)}
       </tr>
       <tr style="${styles.invoiceDetails}">

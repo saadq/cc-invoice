@@ -18,7 +18,7 @@ function getShiftRows(shifts) {
         ${emptyCols(1)}
         <td>Shift ${i + 1}</td>
         <td>${date}</td>
-        <td>${startTime} – ${endTime}</td>
+        <td>${startTime} - ${endTime}</td>
         <td>${duration}</td>
       </tr>
     `

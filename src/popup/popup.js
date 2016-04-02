@@ -1,4 +1,5 @@
 const $ = selector => document.querySelector(selector)
+
 const $save = $('#save')
 const $reset = $('#reset')
 const $status = $('#status')

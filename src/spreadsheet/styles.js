@@ -8,7 +8,7 @@ const colors = {
 }
 
 const styles = {
-  table: 'text-align: left; font-size: 6.5px; font-family: Arial, sans-serif; border-collapse: collapse;',
+  table: 'text-align: left; font-size: 7px; font-family: Arial, sans-serif; border-collapse: collapse;',
   topHeader: `background-color: ${colors.red};`,
   subHeaders: {
     top: `background-color: ${colors.pink};`,

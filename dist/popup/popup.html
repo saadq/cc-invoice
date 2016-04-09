@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Codecademy Invoice Generator</title>
+  <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700'>
+  <link rel="stylesheet" href="./popup.css">
+</head>
+<body>
+  <h2>Preferences</h2>
+
+  <div class="wrapper">
+    <p id="disclaimer">
+      <strong>Note</strong>: If you have a long home address, fill it out in the generated excel sheet manually instead of saving it here to prevent it from being 2 pages.
+    </p>
+    <p id="status"></p>
+
+    <label for="email"><strong>Email:</strong><br></label>
+    <input id="email" type="text" name="email"><br>
+
+    <label for="address"><strong>Home Address:</strong></label>
+    <textarea id="address" type="text" name="address"></textarea><br>
+
+    <button id="save" type="button">Save</button>
+    <button id="reset" type="button">Reset</button>
+  </div>
+
+  <div class="divider"></div>
+  <p id="issues">Report all issues <a href="https://github.com/saadq/cc-invoice/issues" target="_newtab">here</a>.</p>
+
+  <script src="./popup.js"></script>
+</body>
+</html>

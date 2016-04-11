@@ -1,8 +1,8 @@
 # cc-invoice
 > A chrome extension that automatically generates an invoice for Codecademy Advisors.
 
-![](screenshots/screenshot.png)
-![](screenshots/screenshot2.png)
+![](src/img/screenshot.png)
+![](src/img/screenshot2.png)
 
 ## Usage
 1. Install the chrome extension [here](https://chrome.google.com/webstore/detail/codecademy-invoice-genera/mkbpkhombfeimdgbnebamganohlgpcbi).
